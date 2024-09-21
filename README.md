@@ -7,11 +7,13 @@
 <summary style="font-size: 32px">Установка и запуск приложения</summary>
 
 <h2>Используя docker</h2>
+
 ```bash
 docker compose up --build -d
 ```
 
 <h2>Вручную</h2>
+
 ```bash
 cd app
 npm insall
