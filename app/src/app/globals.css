@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+
+}
+
+html, body {
+    @apply w-full h-full bg-[#E1E4E7] select-none;
+}
+body {
+    @apply px-[64px];
+}
