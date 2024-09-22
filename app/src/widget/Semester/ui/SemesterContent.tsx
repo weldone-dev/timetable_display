@@ -18,13 +18,13 @@ export const SemesterContent = ({data}: IProps) => (
         <div className={"mt-[64px] mb-[32px]"}>
             <h3 className={"font-semibold text-[48px] leading-[59px] text-[#5A5A5A]"}>Неделя 1</h3>
             <div className={"text-center mt-[26px] pb-2.5 "}>
-                <TimetableWeekTable content={data.timetable?.weekEven}/>
+                <TimetableWeekTable content={data.timetable?.weekOdd}/>
             </div>
         </div>
         <div className={"mt-[64px] mb-[32px]"}>
             <h3 className={"font-semibold text-[48px] leading-[59px] text-[#5A5A5A]"}>Неделя 2</h3>
             <div className={"text-center mt-[26px] pb-2.5 "}>
-                <TimetableWeekTable content={data.timetable?.weekOdd}/>
+                <TimetableWeekTable content={data.timetable?.weekEven}/>
             </div>
         </div>
     </div>
