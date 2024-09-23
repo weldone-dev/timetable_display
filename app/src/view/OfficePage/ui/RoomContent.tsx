@@ -1,3 +1,4 @@
+"use client"
 import type {IResponseRoom} from "@/shared/api/module/room/types";
 import type {IMode} from "../helpers/types";
 import {useCallback} from "react";

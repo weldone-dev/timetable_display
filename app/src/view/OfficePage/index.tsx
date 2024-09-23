@@ -1,16 +1,9 @@
 "use client"
-import {useCallback, useState} from "react";
+import {useState} from "react";
 import {Navigation} from "@/shared/ui/Navigation";
-import {Loading} from "@/shared/ui/Loading";
-import {Error} from "@/shared/ui/Error";
-import {useFetch} from "@/shared/hooks/useFetch";
-import {serviceAPIOnClient} from "@/shared/api";
-import type {IResponseRoom} from "@/shared/api/module/room/types";
 import type {IMode} from "./helpers/types";
 import {RoomContent} from "./ui/RoomContent";
 import {Mode} from "./ui/Mode";
-
-
 
 
 export function OfficePage() {
