@@ -10,20 +10,12 @@ import type {IMode} from "./helpers/types";
 import {RoomContent} from "./ui/RoomContent";
 import {Mode} from "./ui/Mode";
 
-const fetchFunctions = {
-    group: (signal: AbortSignal) => serviceAPIOnClient.room.getGroup(signal),
-    teacher: (signal: AbortSignal) => serviceAPIOnClient.room.getTeacher(signal),
-};
+
 
 
 export function OfficePage() {
     const [mode, setMode] = useState<IMode>("group");
-    const fetchFunction = useCallback((signal: AbortSignal) => fetchFunctions[mode](signal), [mode]);
-    const {data, error, loading, refetch} = useFetch<IResponseRoom>(fetchFunction);
 
-    if (error) {
-        return (<Error text={"Не удалось загрузить расписание"} refetch={refetch} />)
-    }
     return (
         <div className={"w-full h-full flex flex-col font-montserrat"}>
             <main className={"pb-[468px]"}>
@@ -31,11 +23,10 @@ export function OfficePage() {
                     Кабинеты по {mode === "group" ? "группам" : "преподавателям"}
                 </h1>
                 <article>
-                    {loading && <Loading />}
-                    {data && <RoomContent data={data}/>}
+                    <RoomContent mode={mode}/>
                 </article>
             </main>
-            <footer className={"fixed bottom-[64px] w-full left-0 right-0 px-[64px]"}>
+            <footer className={"fixed w-full max-w-[2032px] bottom-[64px] left-1/2 -translate-x-1/2 transition-all duration-200"}>
                 <div className={"flex flex-col gap-y-[32px]"}>
                     <div className={"flex gap-[32px] w-full "}>
                         <Mode

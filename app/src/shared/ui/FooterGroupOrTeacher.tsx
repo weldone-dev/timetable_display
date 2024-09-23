@@ -24,7 +24,7 @@ export const FooterGroupOrTeacher = (
 
     return (
         <footer
-            className={cn("fixed w-full left-0 right-0 px-[64px] transition-all duration-200", isInputFocused ? "bottom-[776px]" : "bottom-0")}>
+            className={cn("fixed w-full max-w-[2032px] left-1/2 -translate-x-1/2 transition-all duration-200", isInputFocused ? "bottom-[776px]" : "bottom-0")}>
             <div className={isInputFocused ? "mb-[32px]" : "mb-[64px]"}>
                 <div
                     className={cn("flex flex-col gap-y-[32px] transition-all duration-150", isInputFocused ? "-mb-[220px]" : "mb-0")}>

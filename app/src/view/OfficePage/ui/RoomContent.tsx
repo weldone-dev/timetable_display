@@ -1,6 +1,32 @@
 import type {IResponseRoom} from "@/shared/api/module/room/types";
+import type {IMode} from "../helpers/types";
+import {useCallback} from "react";
+import {useFetch} from "@/shared/hooks/useFetch";
+import {Error} from "@/shared/ui/Error";
+import {Loading} from "@/shared/ui/Loading";
+import {serviceAPIOnClient} from "@/shared/api";
 
-export function RoomContent ({ data }: { data:  IResponseRoom }) {
+
+const fetchFunctions = {
+    group: (signal: AbortSignal) => serviceAPIOnClient.room.getGroup(signal),
+    teacher: (signal: AbortSignal) => serviceAPIOnClient.room.getTeacher(signal),
+};
+
+
+interface IProps {
+    mode: IMode;
+}
+
+export function RoomContent ({ mode }: IProps) {
+    const fetchFunction = useCallback((signal: AbortSignal) => fetchFunctions[mode](signal), [mode]);
+    const {data, error, loading, refetch} = useFetch<IResponseRoom>(fetchFunction);
+
+    if (error) {
+        return (<Error text={"Не удалось загрузить расписание"} refetch={refetch} />);
+    }
+    if (loading || !data ) {
+        return <Loading/>;
+    }
     return (
         <>
             <div className={"mb-[128px]"}>

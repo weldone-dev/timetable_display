@@ -7,7 +7,7 @@
 }
 
 html, body {
-    @apply w-full h-full bg-[#E1E4E7] select-none;
+    @apply w-full h-full bg-[#E1E4E7] select-none max-w-[2160px] mx-auto;
 }
 body {
     @apply px-[64px];
