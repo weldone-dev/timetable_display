@@ -1,11 +1,11 @@
+import cn from "clsx";
 import type {Metadata} from "next";
+import Script from "next/script";
 import {Inter, Montserrat} from "next/font/google";
 import React from "react";
 import "./globals.css";
 import {InactivityRedirect} from "@/shared/ui/InactivityRedirect";
 import {DisableContextMenu} from "@/shared/ui/DisableContextMenu";
-import cn from "clsx";
-import Script from "next/script";
 
 const montserrat = Montserrat({
     variable: '--font-montserrat',
