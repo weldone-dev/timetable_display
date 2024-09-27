@@ -5,6 +5,7 @@ import "./globals.css";
 import {InactivityRedirect} from "@/shared/ui/InactivityRedirect";
 import {DisableContextMenu} from "@/shared/ui/DisableContextMenu";
 import cn from "clsx";
+import Script from "next/script";
 
 const montserrat = Montserrat({
     variable: '--font-montserrat',
@@ -31,6 +32,7 @@ export default function RootLayout(
         {children}
         <InactivityRedirect/>
         <DisableContextMenu />
+        <Script src={"/script.js"}></Script>
         </body>
         </html>
     );
